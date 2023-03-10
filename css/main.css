@@ -1,0 +1,373 @@
+*, *::before, *::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; }
+
+html {
+  font-size: 62.5%;
+  font-family: 'Lato', sans-serif;
+  font-family: 'Oswald', sans-serif; }
+
+body {
+  background-color: black;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 10rem 1fr auto;
+  min-height: 100vh; }
+
+.header {
+  opacity: 0.5;
+  position: relative;
+  background-color: black;
+  display: flex;
+  justify-content: flex-end;
+  background-color: orange; }
+  .header .navbar {
+    background-color: orange;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 998;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    padding-bottom: 1rem;
+    clip-path: circle(0% at 95.3% 8.5%);
+    transition: .4s ease-in; }
+  .header .navbar.active {
+    z-index: 998;
+    clip-path: circle(140% at 95.3% 8.5%); }
+  .header .navbar-ul {
+    z-index: 998;
+    list-style-type: none; }
+    .header .navbar-ul .navbar-li a {
+      font-size: clamp(1.5rem, 2.5vw, 3rem);
+      color: white;
+      text-decoration: none; }
+
+.hamburger-menu {
+  z-index: 999;
+  height: 5em;
+  cursor: pointer;
+  width: 5em;
+  position: relative;
+  margin-top: 2rem; }
+
+.ham-bar {
+  width: 70%;
+  height: 0.4em;
+  background-color: white;
+  border-radius: 2.5em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  transition: transform .6s, opacity .8s, top .6s; }
+
+.bar-top {
+  top: 25%; }
+
+.bar-bottom {
+  top: 75%; }
+
+.hamburger-menu.active .bar-top {
+  transform: translate(-50%, -50%) rotate(-315deg);
+  top: 50%; }
+
+.hamburger-menu.active .bar-mid {
+  opacity: 0; }
+
+.hamburger-menu.active .bar-bottom {
+  transform: translate(-50%, -50%) rotate(-225deg);
+  top: 50%; }
+
+.main {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: auto;
+  transition: opacity 250ms; }
+
+.slider-container-top, .slider-container-mid {
+  width: 100%;
+  height: 31rem;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  z-index: 1; }
+
+.slider-one__top, .slider-two__top, .slider-one__mid, .slider-two__mid {
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  transition: all 1s ease-in-out; }
+
+.section-structure {
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 2rem;
+  width: 100%; }
+
+.slide:nth-child(1) {
+  left: 0; }
+
+.slide:nth-child(2) {
+  left: 100%; }
+
+.slide {
+  transform: translateX(-100%); }
+
+.slide-mid:nth-child(1) {
+  left: 0; }
+
+.slide-mid:nth-child(2) {
+  left: 100%; }
+
+.slide-mid {
+  transform: translateX(-100%); }
+
+.button {
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+  height: 4rem; }
+
+.prevBtn, .nextBtn, .nextBtnTwo, .prevBtnTwo {
+  width: 2rem;
+  color: white;
+  background: none;
+  border: none; }
+
+.prevBtn:after {
+  content: "->";
+  font-size: 4rem;
+  transition: all ease 2s;
+  cursor: pointer;
+  transform: translateX(5px); }
+
+.prevBtn:hover::after {
+  animation: test 1s forwards; }
+
+@keyframes test {
+  100% {
+    transform: rotate(250deg); } }
+
+.nextBtn:before {
+  content: "<-";
+  font-size: 4rem;
+  transition: all ease 2s;
+  cursor: pointer; }
+
+.prevBtnTwo:after {
+  content: "->";
+  font-size: 4rem;
+  transition: all ease 2s;
+  cursor: pointer; }
+
+.nextBtnTwo:before {
+  content: "<-";
+  font-size: 4rem;
+  transition: all ease 2s;
+  cursor: pointer; }
+
+.card-flex-wrapper__top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row;
+  gap: 1rem; }
+
+.card-flex-wrapper__mid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row;
+  gap: 1rem; }
+
+.card-flex-wrapper__bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row;
+  gap: 1rem; }
+
+.movie-card {
+  background-color: lavender;
+  position: relative;
+  height: 30rem;
+  width: 25rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  transition: 350ms; }
+  .movie-card .movie-card__bottom {
+    background-color: black;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 0;
+    width: 100%;
+    height: 15%; }
+    .movie-card .movie-card__bottom.movie-card__bottom a {
+      font-size: clamp(1.5rem, 2.5vw, 3rem);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.2rem;
+      color: white; }
+
+.header-container {
+  text-align: center;
+  opacity: 0;
+  z-index: 2;
+  transition: .5s; }
+  .header-container .header-container__primary {
+    color: white;
+    text-transform: uppercase;
+    font-size: clamp(1.5rem, 2.5vw, 3rem);
+    display: block; }
+  .header-container .header-container__sub {
+    color: white;
+    text-transform: uppercase;
+    font-size: clamp(1.5rem, 2.5vw, 3rem);
+    display: block; }
+
+.movie-card:hover .header-container {
+  opacity: 1; }
+
+.movie-card:hover {
+  box-shadow: #100a1b 0px 5px 9px 5px; }
+
+.card1 {
+  background-image: url(/desktopimg/action/avengers-infinity-war_7d58_1496x3238.jpg);
+  background-size: cover;
+  background-repeat: no-repeat; }
+
+.card2 {
+  background-image: url(/desktopimg/action/black-panther_3f62_1080x1920.jpg);
+  background-size: cover;
+  background-repeat: no-repeat; }
+
+.card3 {
+  background-image: url(/desktopimg/action/deadpool-2_d1da_1080x1920.jpg);
+  background-size: cover;
+  background-repeat: no-repeat; }
+
+.card4 {
+  background-image: url(/desktopimg/action/john-wick-chapter-2_293e_1080x1920.jpg);
+  background-size: cover;
+  background-repeat: no-repeat; }
+
+.card5 {
+  background-image: url(/desktopimg/action/pacific-rim-uprising_f0b3_1080x1920.jpg);
+  background-size: cover;
+  background-repeat: no-repeat; }
+
+.card6 {
+  background-image: url(/desktopimg/action/the-mandalorian_6684_1080x1920.jpg);
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat; }
+
+.card7 {
+  background-image: url(/desktopimg/action/legion_6387_1080x1920.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; }
+
+.card8 {
+  background-image: url(/desktopimg/action/mad-max-fury-road_bc07_1080x1920.jpg);
+  background-size: cover;
+  background-repeat: no-repeat; }
+
+.card9 {
+  background-image: url(/desktopimg/action/the-lord-of-the-rings-the-fellowship-of-the-ring_2cd7_1080x1920.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; }
+
+.card10 {
+  background-image: url(/desktopimg/action/venom_1dc4_1080x1920.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; }
+
+.card11 {
+  background-image: url(/desktopimg/action/blade-runner-2049_02d9_1080x1920.jpg);
+  background-size: cover;
+  background-repeat: no-repeat; }
+
+.card12 {
+  background-image: url(/desktopimg/action/1917_60db_1080x1920.jpg);
+  background-size: cover;
+  background-repeat: no-repeat; }
+
+.card13 {
+  background-image: url(/desktopimg/kids/coco_e6e2_1080x1920.jpg);
+  background-size: cover;
+  background-repeat: no-repeat; }
+
+.card14 {
+  background-image: url(/desktopimg/kids/despicable-me-3_0eb5_1080x1920.jpg);
+  background-size: cover;
+  background-repeat: no-repeat; }
+
+.card15 {
+  background-image: url(/desktopimg/kids/frozen_efa2_1080x1920.jpg);
+  background-size: cover;
+  background-repeat: no-repeat; }
+
+.card16 {
+  background-image: url(/desktopimg/kids/hotel-transylvania-3-summer-vacation_6178_1496x3238.jpg);
+  background-size: cover;
+  background-repeat: no-repeat; }
+
+.card17 {
+  background-image: url(/desktopimg/kids/moana_0c96_1080x1920.jpg);
+  background-size: cover;
+  background-repeat: no-repeat; }
+
+.card18 {
+  background-image: url(/desktopimg/kids/onward_283c_1496x3238.jpg);
+  background-size: cover;
+  background-repeat: no-repeat; }
+
+.card19 {
+  background-image: url(/desktopimg/kids/raya-and-the-last-dragon_3cec_1080x1920.jpg);
+  background-size: cover;
+  background-repeat: no-repeat; }
+
+.card20 {
+  background-image: url(/desktopimg/kids/spider-man-into-the-spider-verse_0412_1496x3238.jpg);
+  background-size: cover;
+  background-repeat: no-repeat; }
+
+.card21 {
+  background-image: url(/desktopimg/kids/the-grinch_1195_1080x1920.jpg);
+  background-size: cover;
+  background-repeat: no-repeat; }
+
+.card22 {
+  background-image: url(/desktopimg/kids/the-lion-king_8ca9_1080x1920.jpg);
+  background-size: cover;
+  background-repeat: no-repeat; }
+
+.card23 {
+  background-image: url(/desktopimg/kids/the-peanuts-movie_9afd_1080x1920.jpg);
+  background-size: cover;
+  background-repeat: no-repeat; }
+
+.card24 {
+  background-image: url(/desktopimg/kids/toy-story-4_2d35_1080x1920.jpg);
+  background-size: cover;
+  background-repeat: no-repeat; }
